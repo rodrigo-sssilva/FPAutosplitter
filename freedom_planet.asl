@@ -9,7 +9,7 @@ state("FP", "1.20.4")
 {
 	double igt : "FP.exe", 0x1DAE6C8, 0x14, 0x1B8;
 	uint totalIgt : "FP.exe", 0x1DAE488, 0x64, 0x3C;
-	int frame : "FP.exe", 0x1666A98;
+	int frame : "FP.exe", 0x1DAE338;
 }
 
 state("FP","1.21.5")
@@ -37,6 +37,9 @@ init
 			break;
 		case 0x01EDD000:
 			version = "1.20.4";
+			break;
+		case 0x017A0000:
+			version = "1.21.5";
 			break;
 		default:
 			print("Could not detect version.");
