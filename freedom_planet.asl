@@ -9,9 +9,15 @@ state("FP", "1.20.4")
 {
 	double igt : "FP.exe", 0x1DAE6C8, 0x14, 0x1B8;
 	uint totalIgt : "FP.exe", 0x1DAE488, 0x64, 0x3C;
-	int frame : "FP.exe", 0x1DAE338;
+	int frame : "FP.exe", 0x1666A98;
 }
 
+state("FP","1.21.5")
+{
+	double igt : "FP.exe", 0x167B328, 0x3C8, 0x14, 0x1B8;
+	uint totalIgt : "FP.exe", 0x01666BE8, 0x64, 0x3C;
+	int frame : "FP.exe", 0x1666A98;
+}
 startup
 {
 	timer.OnStart += (s, e) =>
