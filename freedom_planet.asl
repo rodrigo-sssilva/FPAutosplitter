@@ -14,9 +14,9 @@ state("FP", "1.20.4")
 
 state("FP","1.21.5")
 {
-	double igt : "FP.exe", 0x167B328, 0x3C8, 0x14, 0x1B8;
-	uint totalIgt : "FP.exe", 0x01666BE8, 0x64, 0x3C;
-	int frame : "FP.exe", 0x1666A98;
+	double igt : "FP.exe", 0x167E458, 0x3C8, 0x14, 0x1B8;
+	uint totalIgt : "FP.exe", 0x01669D18, 0x64, 0x3C;
+	int frame : "FP.exe", 0x1669BC8;
 }
 startup
 {
@@ -38,7 +38,7 @@ init
 		case 0x01EDD000:
 			version = "1.20.4";
 			break;
-		case 0x017A0000:
+		case 0x017AA000:
 			version = "1.21.5";
 			break;
 		default:
