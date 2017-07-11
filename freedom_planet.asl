@@ -18,6 +18,15 @@ state("FP","1.21.5")
 	uint totalIgt : "FP.exe", 0x0166AD18, 0x64, 0x3C;
 	int frame : "FP.exe", 0x166ABC8;
 }
+//fp.exe+14BDBC8
+//0x1ad000 is the difference
+state("FP","1.21.5-new")
+{
+	double igt : "FP.exe", 0x14D2458, 0x3C8, 0x14, 0x1B8;
+	uint totalIgt : "FP.exe", 0x014BDD18, 0x64, 0x3C;
+	int frame : "FP.exe", 0x14BDBC8;
+}
+
 startup
 {
 	timer.OnStart += (s, e) =>
@@ -40,6 +49,9 @@ init
 			break;
 		case 0x017AB000:
 			version = "1.21.5";
+			break;
+		case 0x015FF000:
+			version = "1.21.5-new";
 			break;
 		default:
 			print("Could not detect version.");
