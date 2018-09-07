@@ -18,8 +18,7 @@ state("FP","1.21.5")
 	uint totalIgt : "FP.exe", 0x0166AD18, 0x64, 0x3C;
 	int frame : "FP.exe", 0x166ABC8;
 }
-//fp.exe+14BDBC8
-//0x1ad000 is the difference
+
 state("FP","1.21.5-new")
 {
 	double igt : "FP.exe", 0x14D2458, 0x3C8, 0x14, 0x1B8;
@@ -27,12 +26,19 @@ state("FP","1.21.5-new")
 	int frame : "FP.exe", 0x14BDBC8;
 }
 
+state("FP","1.21.5-language")
+{
+	double igt : "FP.exe", 0x18D7DD8;
+	uint totalIgt : "FP.exe", 0x1938E90, 0x64, 0x3C;
+	int frame : "FP.exe", 0x1938D40;
+}
+
 startup
 {
 	timer.OnStart += (s, e) =>
 	{
 		vars.time = 0;
-		vars.lastSplit = 0;		
+		vars.lastSplit = 0;
 		vars.doSplit = false;
 	};
 }
@@ -52,6 +58,9 @@ init
 			break;
 		case 0x015FF000:
 			version = "1.21.5-new";
+			break;
+		case 0x01AD0000:
+			version = "1.21.5-language";
 			break;
 		default:
 			print("Could not detect version.");
@@ -88,9 +97,9 @@ gameTime
 	}
 
 	double newTime = vars.lastSplit + current.igt;
-	
+
 	if (newTime > vars.time)
 		vars.time = newTime;
-	
+
 	return TimeSpan.FromMilliseconds(vars.time);
 }
